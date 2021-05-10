@@ -10,10 +10,10 @@ MINY = 0.
 MAXY = 10.
 
 # total number of points
-n = 50
+n = 56
 
 # number of points for jarvis method
-min_n = 3
+min_n = 7
 
 
 def draw():
@@ -79,7 +79,22 @@ def angle(start, end, point):
 
 
 def jarvis_march(current_points):
-    return current_points#TODO
+    start = min(current_points)
+    current_points.remove(start)
+    current_points.append(start)
+    resulting_hull = [start]
+
+    while True:
+        right = current_points[0]
+        for i in range(1, len(current_points)):
+            if not is_left_turn(right, resulting_hull[-1], current_points[i]):
+                right = current_points[i]
+        if right == resulting_hull[0]:
+            break
+        resulting_hull.append(right)
+        current_points.remove(right)
+
+    return resulting_hull
 
 
 def graham_unite(current_points):
