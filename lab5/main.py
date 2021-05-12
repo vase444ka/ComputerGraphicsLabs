@@ -95,14 +95,14 @@ def fast_hull(points):
 
 
 if __name__ == '__main__':
-    points = generate_points()
-    colors = ["r"] * len(points)
+    points = generate_points()#random generation
+    colors = ["r"] * len(points)#points are red. Hull points are blue.
     fig, ax = plt.subplots()
     camera = Camera(fig)
 
     hull = fast_hull(points)
 
-    define_hull(hull)
+    define_hull(hull)#draws final hull
 
     anim = camera.animate(repeat=False, interval=3000)
     plt.show()

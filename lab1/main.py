@@ -85,7 +85,7 @@ def is_point_in_polygon():
 
 if __name__ == '__main__':
     # initialization
-    polygon = read_polygon()
+    polygon = read_polygon()#read points from file
     #polygon = [Point(0, 1), Point(0, 3), Point(3, 3), Point(3, 6), Point(0, 6), Point(0, 9), Point(6, 9), Point(6, 0)]
     point = generate_point()
     line = generate_line()
@@ -99,5 +99,5 @@ if __name__ == '__main__':
     camera.snap();
 
     # final animation
-    anim = camera.animate(repeat=False, interval=500)
+    anim = camera.animate(repeat=False, interval=2000)
     plt.show()
